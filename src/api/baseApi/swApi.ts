@@ -18,7 +18,7 @@ const swApi = async <Data>(
     const data: Data = response.status !== 204 ? await response.json() : null;
 
     return {
-      ...data,
+      data,
       status: response.status,
     };
   } catch {}

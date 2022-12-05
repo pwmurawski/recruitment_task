@@ -1,7 +1,7 @@
 import isValidDateFormatBBY from "./isValidDateFormatBBY";
 
 const getAgeByBirthYearBBY = (birthYearBBY: string) => {
-  if (!isValidDateFormatBBY(birthYearBBY)) return null;
+  if (!isValidDateFormatBBY(birthYearBBY)) return "brak danych";
 
   const currentYear = new Date().getFullYear();
 

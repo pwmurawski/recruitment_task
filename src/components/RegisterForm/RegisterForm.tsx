@@ -1,16 +1,10 @@
 import isErrorForm from "../../helpers/isErrorForm";
-import useFormValidLive from "../../hooks/useFormValidLive";
+import useForm from "../../hooks/useForm";
 import { FormInitType } from "../../types/FormTypes";
+import { KeysType, SubmitType } from "../../types/RegisterFormTypes";
 import CheckBoxCustom from "../CheckBoxCustom/CheckBoxCustom";
 import InputCustom from "../InputCustom/InputCustom";
 import { FormContainer, OffButton, SubmitButton } from "./styles/styles";
-
-type KeysType =
-  | "login"
-  | "password"
-  | "email"
-  | "phoneNumber"
-  | "acceptRegulations";
 
 const initFormValue: FormInitType<KeysType> = {
   login: {
@@ -35,11 +29,20 @@ const initFormValue: FormInitType<KeysType> = {
   },
 };
 
-export default function RegisterForm() {
-  const [formData, changeHandler] = useFormValidLive(initFormValue);
+interface IRegisterFormProps {
+  onSubmit: SubmitType;
+}
+
+export default function RegisterForm({ onSubmit }: IRegisterFormProps) {
+  const { formData, changeHandler, onSubmitHandler } = useForm(initFormValue);
 
   return (
-    <FormContainer>
+    <FormContainer
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmitHandler(onSubmit);
+      }}
+    >
       <InputCustom
         type="text"
         placeholder="Login:"
@@ -48,7 +51,7 @@ export default function RegisterForm() {
         error={formData.login.error}
       />
       <InputCustom
-        type="text"
+        type="password"
         placeholder="Hasło:"
         value={formData.password.value}
         onChange={(e) => changeHandler(e.target.value, "password")}
@@ -79,7 +82,7 @@ export default function RegisterForm() {
       {!isErrorForm(formData) ? (
         <SubmitButton type="submit">zapisz</SubmitButton>
       ) : (
-        <OffButton>zapisz</OffButton>
+        <OffButton type="button">zapisz</OffButton>
       )}
     </FormContainer>
   );
