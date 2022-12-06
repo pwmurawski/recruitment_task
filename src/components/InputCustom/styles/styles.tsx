@@ -13,7 +13,7 @@ export const InputCustomContainer = styled.div<{ error?: boolean }>`
   flex-direction: column;
   width: 100%;
   height: fit-content;
-  margin: 10px 0;
+  margin: 15px 0;
   border-bottom: 1.55px solid ${({ error }) => (error ? "red" : "black")};
   background: transparent;
 `;
@@ -46,4 +46,8 @@ export const Error = styled.div`
   font-style: italic;
   font-weight: 300;
   color: #ff0000;
+
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
 `;

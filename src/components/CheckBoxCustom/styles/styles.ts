@@ -11,6 +11,7 @@ export const CheckBoxCustomContainer = styled.div`
 export const Input = styled.input<{ error?: boolean }>`
   width: 30px;
   height: 30px;
+  min-width: 30px;
   border: 3px solid ${({ error }) => (error ? "#ff0000" : "black")};
 
   &:not(:checked) {
@@ -40,4 +41,8 @@ export const Error = styled.div`
   font-weight: 300;
   text-align: right;
   color: #ff0000;
+
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
 `;

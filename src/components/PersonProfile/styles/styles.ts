@@ -31,10 +31,10 @@ export const PersonInfo = styled.div`
   top: 66.64%;
   display: flex;
   flex-direction: column;
-  padding: 0 120px 0 80px;
+  padding: 0 90px;
 
   @media (max-width: 650px) {
-    padding: 0 120px 0 0;
+    padding: 0 90px 0 0;
   }
 `;
 
@@ -47,6 +47,11 @@ export const Name = styled.h1`
   margin: 0;
   text-align: center;
   color: #000000;
+
+  @media (max-width: 435px) {
+    font-size: 35px;
+    line-height: 40px;
+  }
 `;
 
 export const Age = styled.div`
@@ -68,5 +73,4 @@ export const Icon = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 115px;
 `;

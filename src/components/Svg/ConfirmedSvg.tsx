@@ -1,8 +1,8 @@
 export default function ConfirmedSvg() {
   return (
     <svg
-      width="48"
-      height="45"
+      width="40"
+      height="37"
       viewBox="0 0 48 45"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
